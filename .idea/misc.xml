@@ -7,10 +7,12 @@
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_dashboard.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_notifications.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/student/Desktop/yael git/GitHub/FinalProject_App/app/src/main/res/layout/activity_main.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/student/Desktop/yael git/GitHub/FinalProject_App/app/src/main/res/layout/activity_splash.xml" value="0.165625" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
