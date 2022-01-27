@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class SignUpActivity extends AppCompatActivity {
     private Button btn;
@@ -15,7 +14,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        btn=findViewById(R.id.alreadyHaveAccount);
+        btn=findViewById(R.id.signup_btn);
         Log.d("1","signup acti");
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
