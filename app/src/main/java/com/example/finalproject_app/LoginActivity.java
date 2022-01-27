@@ -20,25 +20,25 @@ import android.widget.Toast;
 import com.example.finalproject_app.ui.login.SignUpFragment;
 
 public class LoginActivity extends AppCompatActivity  {
-    EditText mailET;
-    EditText passwordET;
-    Button loginBtn;
-    Button signUpBtn;
+    EditText login_email;
+    EditText login_password;
+    Button login_loginbtn;
+    Button login_sigupbtn;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mailET=findViewById(R.id.login_email);
-        passwordET=findViewById(R.id.login_password);
+        login_email=findViewById(R.id.login_email);
+        login_password=findViewById(R.id.login_password);
         progressBar=findViewById(R.id.login_progressBar);
-        loginBtn=findViewById(R.id.login_loginbtn);
-        signUpBtn=findViewById(R.id.login_sigup_btn);
-       progressBar.setVisibility(View.INVISIBLE);//הוספתי
+        login_loginbtn=findViewById(R.id.login_loginbtn);
+        login_sigupbtn=findViewById(R.id.login_sigup_btn);
+        progressBar.setVisibility(View.INVISIBLE);
 
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        login_loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -53,25 +53,13 @@ public class LoginActivity extends AppCompatActivity  {
         });
 
 
-        signUpBtn.setOnClickListener(new View.OnClickListener() {
+        login_sigupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//
-//                Intent intent = new Intent(view.getContext(), SignUpActivity.class);
-//                view.getContext().startActivity(intent);
 
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
-//                SignUpFragment fragment1=new SignUpFragment();
-//                FragmentManager manager=getSupportFragmentManager();
-//                FragmentTransaction tran=manager.beginTransaction();
-//                tran.replace(R.id.loginactivity_frame, fragment1).addToBackStack(LoginActivity.class.getSimpleName());
-//                tran.commit();
 
-//                SignUpFragment fragment = new SignUpFragment();
-//                getSupportFragmentManager().beginTransaction().replace(R.id.loginactivity_frame,fragment).commit().remove(this);
-                Log.d("try","signup btn");
-//                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_signUpFragment);
             }
         });
 
@@ -116,17 +104,15 @@ public class LoginActivity extends AppCompatActivity  {
         return false;
     }
     private boolean verifyFields(View view) {
-        if(!isETEmpty(mailET) && !isETEmpty(passwordET) )
+        if(!isETEmpty(login_email) && !isETEmpty(login_password) )
         {
             if(verifyPassword(view))
                 return true;
         }
         return false;
     }
-
-
     private boolean verifyPassword(View view) {
-        String p=passwordET.getText().toString();
+        String p=login_password.getText().toString();
         if(p.length()<6) {
             Toast toast = Toast.makeText(view.getContext(), "the password is at least 6 character", Toast.LENGTH_SHORT);
             toast.show();
