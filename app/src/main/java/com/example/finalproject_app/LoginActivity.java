@@ -8,6 +8,7 @@ import androidx.navigation.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +18,17 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.finalproject_app.HTTP.HttpCall;
+import com.example.finalproject_app.HTTP.HttpRequest;
 import com.example.finalproject_app.ui.login.SignUpFragment;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 public class LoginActivity extends AppCompatActivity  {
+    private static final String SERVER = "http://10.0.2.2:3000/users/login";
     EditText login_email;
     EditText login_password;
     Button login_loginbtn;
@@ -41,14 +50,47 @@ public class LoginActivity extends AppCompatActivity  {
         login_loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                HttpCall httpCall = new HttpCall();
+                httpCall.setMethodtype(HttpCall.POST);
+                httpCall.setUrl(SERVER);
+                HashMap<String,String> params = new HashMap<>();
+                Editable password = login_password.getText();
+                Editable email = login_email.getText();
+                params.put("password", String.valueOf(password));
+                params.put("email", String.valueOf(email));
+                httpCall.setParams(params);
+                new HttpRequest(){
+                    String s;
+                    @Override
+                    public void onResponse(String response) {
+                        super.onResponse(response);
+                        Log.d("GET", response);
+                        s = response;
+                        try {
+//                            JSONArray obj = new JSONArray(s);
+//                            JSONObject objA = obj.getJSONObject(0);
+//                            String userID =  objA.getString("userID");
+//                            //String selected_attractions =  objA.getString("selected_attractions");
+                            Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+//                        Log.d("LOGIN", s);
+                        if(verifyFields(view))
+                        {
+                            if (s.equals("ok")) {
+                                Log.d("LOGIN111", s);
+                                //                    LoginUser(view);
+                                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                                view.getContext().startActivity(intent);
+                                Log.d("try", "login try");
+                            }
+                        }
+                    }
 
-                if(verifyFields(view))
-                {
-//                    LoginUser(view);
-                    Intent intent = new Intent(view.getContext(), MainActivity.class);
-                    view.getContext().startActivity(intent);
-                    Log.d("try","login try");
-                }
+                }.execute(httpCall);
+
+
             }
         });
 

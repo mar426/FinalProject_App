@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.finalproject_app.HTTP.HttpCall;
 import com.example.finalproject_app.HTTP.HttpRequest;
@@ -69,10 +70,18 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         super.onResponse(response);
-                        //PostServerResponse.setText("Post:" +response);
+                        String s = response;
+                        try {
+                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        if (s.equals("User Updated successfully")) {
+                            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                        }
                     }
                 }.execute(httpCallPost);
-                startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
+
             }
         });
     }
