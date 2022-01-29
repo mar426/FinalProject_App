@@ -76,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        if (s.equals("User Updated successfully")) {
+                        if (s.equals("User added successfully")) {
                             startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                         }
                     }
