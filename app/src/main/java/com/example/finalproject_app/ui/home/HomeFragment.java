@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
-
+// test
     private RecyclerView recyclerView;
     Button route_btn;
     private static final String UPDATE_SA_USER_URL = "http://10.0.2.2:3000/users/selected_attraction_update";
