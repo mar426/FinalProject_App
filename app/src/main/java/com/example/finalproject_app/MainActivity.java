@@ -1,14 +1,18 @@
 package com.example.finalproject_app;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.finalproject_app.databinding.ActivityMainBinding;
+import com.example.finalproject_app.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,15 +39,9 @@ public class MainActivity extends AppCompatActivity {
         //margalit
 
 
+
+
     }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getSupportMenuInflater().inflate(R.menu.my_layout, menu);
-//        menu.findItem(R.id.button_generator).setVisible(false);
-//        return true;
-//    }
 
 
 
