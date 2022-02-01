@@ -70,18 +70,12 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         super.onResponse(response);
-                        String s = response;
-                        try {
-                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        if (s.equals("User added successfully")) {
-                            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-                        }
+                        //PostServerResponse.setText("Post:" +response);
+                        Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+
                     }
                 }.execute(httpCallPost);
-
+                startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
             }
         });
     }
