@@ -8,6 +8,7 @@ public class Attraction {
     private String attraction_name;
     private String attraction_details;
     private int attraction_id;
+    private boolean status;
 
 
     //constructor
@@ -30,5 +31,9 @@ public class Attraction {
     public int getAttraction_id() {
         return attraction_id;
     }
+
+    public boolean getStatus() { return status; }
+
+    public void setStatus(boolean status) { this.status = status; }
 
 }

@@ -1,6 +1,7 @@
 package com.example.finalproject_app.Model;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +23,9 @@ import java.util.List;
 
 public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.AttractionViewHolder> {
 
-    private static List<Integer> clickPosition = new ArrayList<Integer>();
+    private static List<String> clickPosition = new ArrayList<String>();
     private ArrayList<Attraction> attractions;
-    public static ArrayList<Integer> selected_attractions=new ArrayList<Integer>() ;
+    public static List<String> selected_attractions=new ArrayList<String>() ;
 
     //constructor
     public Atraction_Adapter(ArrayList<Attraction> attractions) {
@@ -45,24 +46,51 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         holder.attraction_name.setText(currentAttraction.getAttraction_name());
         holder.position=position;
         holder.att=currentAttraction;
-
         holder.add_attraction_btn.setVisibility(View.VISIBLE);
+        //holder.row_index = -1;
         holder.add_attraction_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickPosition.add(position);
+                //holder.row_index = position;
+                if (currentAttraction.getStatus()==false) {
+                    clickPosition.add(String.valueOf(position));
+                    currentAttraction.setStatus(true);
+                }
+                else {
+
+                    clickPosition.remove(String.valueOf(position));
+                    selected_attractions.remove(String.valueOf(position+1));
+                    currentAttraction.setStatus(false);
+                }
+
                 notifyDataSetChanged();
             }
         });
-        if(clickPosition.contains(position)){
-            if(selected_attractions.contains(currentAttraction.getAttraction_id())){
+
+        if(clickPosition.contains(String.valueOf(position))){
+            Log.d("not string","--"+currentAttraction.getAttraction_id());
+            Log.d("string","--"+String.valueOf(currentAttraction.getAttraction_id()));
+            if(selected_attractions.contains(String.valueOf(currentAttraction.getAttraction_id()))){
                 Log.d("click", "exits ");
             }
             else {
-                selected_attractions.add(currentAttraction.getAttraction_id());
+                selected_attractions.add(String.valueOf(currentAttraction.getAttraction_id()));
                 Log.d("click", "add " +currentAttraction.getAttraction_name()+" to route ");
             }
-            holder.add_attraction_btn.setVisibility(View.INVISIBLE);
+            //holder.add_attraction_btn.setTag(currentAttraction.getStatus());
+            Log.d("add_attraction_btn", "status:"+ currentAttraction.getStatus());
+
+            //notifyDataSetChanged();
+            //holder.add_attraction_btn.setVisibility(View.INVISIBLE);
+        }
+        //&& String.valueOf(holder.add_attraction_btn.getTag())=="false"
+        if(currentAttraction.getStatus()==false){
+            holder.add_attraction_btn.setText("Add");
+            holder.add_attraction_btn.setBackgroundColor(Color.BLUE);
+        }
+        else{
+            holder.add_attraction_btn.setText("Remove");
+            holder.add_attraction_btn.setBackgroundColor(Color.RED);
         }
 
     }
@@ -85,7 +113,7 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         public Button details_attraction_btn;
         public int position;
         public Attraction att;
-
+        public int row_index;
 
 
         public AttractionViewHolder(@NonNull View itemView) {
@@ -114,6 +142,7 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 
 //                    Log.d("click", "deatails of " +att.getAttraction_name());
                     Log.d("click","selected attractions: "+selected_attractions);
+                    Log.d("click","click positions: "+clickPosition);
                 }
             });
 
