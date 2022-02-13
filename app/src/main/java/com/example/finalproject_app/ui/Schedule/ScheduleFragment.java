@@ -1,6 +1,9 @@
 package com.example.finalproject_app.ui.Schedule;
 
+import static com.example.finalproject_app.ui.Profile.ProfileFragment.temp;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +24,14 @@ public class ScheduleFragment extends Fragment {
     private ScheduleViewModel scheduleViewModel;
     private FragmentDashboardBinding binding;
     private ImageView attractionImage;
+    private TextView email;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
 
         View view = inflater.inflate(R.layout.fragment_attractions_details, container, false);
+        email = view.findViewById(R.id.user_profile_mail);
 //        scheduleViewModel =
 //                new ViewModelProvider(this).get(ScheduleViewModel.class);
 //
@@ -41,6 +46,7 @@ public class ScheduleFragment extends Fragment {
 //            }
 //        });
         attractionImage=view.findViewById(R.id.deatailsFrag_attraction_image);
+        Log.d("try", "t"+temp);
         return view;
     }
 

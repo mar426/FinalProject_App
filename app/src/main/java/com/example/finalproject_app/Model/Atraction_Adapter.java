@@ -26,7 +26,7 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 
     private static List<String> clickPosition = new ArrayList<String>();
     private ArrayList<Attraction> attractions;
-    public static List<String> selected_attractions=new ArrayList<String>() ;
+    public static List<String> selected_attractions= new ArrayList<String>() ;
 
     //constructor
     public Atraction_Adapter(ArrayList<Attraction> attractions) {
