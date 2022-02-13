@@ -68,7 +68,8 @@ public class HomeFragment extends Fragment {
                 {
                     paramsPost.put("selected_attractions"+"["+i+"]", String.valueOf((adapter.selected_attractions).get(i)));
                 }
-                paramsPost.put("userID", "9090");
+                Log.d("tt","array"+paramsPost);
+                paramsPost.put("userID", "123456");
                 httpCallPost.setParams(paramsPost);
                 new HttpRequest(){
                     @Override
@@ -109,49 +110,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-    // adapter of list view (we are use on recyclerview)
 
-//    class MyAdapter extends BaseAdapter {
-//
-//        List<String> data;
-//
-//        //constractor
-//        MyAdapter() {
-//            data = new LinkedList<String>();
-//            for (int i = 0; i < 15; ++i) {
-//                data.add("attraction" + i);
-//            }
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return data.size();
-//        }
-//
-//
-//        @Override
-//        public Object getItem(int position) {
-//            return null;
-//        }
-//
-//        @Override
-//        public long getItemId(int position) {
-//            return 0;
-//        }
-//
-//
-//        @Override
-//        public View getView(int position /*row index*/, View convertView, ViewGroup parent) {
-//            if (convertView == null) {
-//                LayoutInflater inflater1 = getLayoutInflater();
-//                convertView = inflater1.inflate(R.layout.home_list_row, null);
-//
-//            }
-//            TextView attraction_name = convertView.findViewById(R.id.home_listrow_atraction_name);
-//            attraction_name.setText(data.get(position));
-//            return convertView;
-//        }
-//    }
 
 
 

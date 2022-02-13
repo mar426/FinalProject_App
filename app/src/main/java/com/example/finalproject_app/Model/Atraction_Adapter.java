@@ -1,5 +1,6 @@
 package com.example.finalproject_app.Model;
 
+
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.util.Log;
@@ -107,7 +108,7 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 
     //View Holder
     public static class AttractionViewHolder extends RecyclerView.ViewHolder{
-//        public ImageView attraction_img;
+        //        public ImageView attraction_img;
         public TextView attraction_name;
         public Button add_attraction_btn;
         public Button details_attraction_btn;
@@ -149,4 +150,3 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         }
     }
 }
-

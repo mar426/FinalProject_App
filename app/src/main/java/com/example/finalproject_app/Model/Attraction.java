@@ -10,6 +10,9 @@ public class Attraction {
     private int attraction_id;
     private boolean status;
 
+    
+
+
 
     //constructor
 
