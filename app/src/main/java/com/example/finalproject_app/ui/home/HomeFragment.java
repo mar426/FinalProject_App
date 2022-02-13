@@ -36,8 +36,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_home2, container, false);
 
+
+        View view = inflater.inflate(R.layout.fragment_home2, container, false);
         ArrayList<Attraction> Attractions_arr= new ArrayList<>();
         for(int i=1; i<20; ++i){
             Attractions_arr.add(new Attraction("attraction "+i,"details",i));

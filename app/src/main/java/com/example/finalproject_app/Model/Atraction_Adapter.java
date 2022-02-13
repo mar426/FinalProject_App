@@ -13,9 +13,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject_app.R;
+import com.example.finalproject_app.ui.home.AttractionsDetailsFragment;
+import com.example.finalproject_app.ui.home.HomeFragment;
+import com.example.finalproject_app.ui.home.HomeFragmentDirections;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -24,6 +32,7 @@ import java.util.List;
 
 public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.AttractionViewHolder> {
 
+    public String attraction_id;
     private static List<String> clickPosition = new ArrayList<String>();
     private ArrayList<Attraction> attractions;
     public static List<String> selected_attractions= new ArrayList<String>() ;
@@ -43,24 +52,26 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 
     @Override
     public void onBindViewHolder(@NonNull AttractionViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Attraction currentAttraction= attractions.get(position);
+        Attraction currentAttraction = attractions.get(position);
         holder.attraction_name.setText(currentAttraction.getAttraction_name());
-        holder.position=position;
-        holder.att=currentAttraction;
+        holder.position = position;
+        holder.att = currentAttraction;
         holder.add_attraction_btn.setVisibility(View.VISIBLE);
         //holder.row_index = -1;
+
+
+        // ADD BTN
         holder.add_attraction_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //holder.row_index = position;
-                if (currentAttraction.getStatus()==false) {
+                if (currentAttraction.getStatus() == false) {
                     clickPosition.add(String.valueOf(position));
                     currentAttraction.setStatus(true);
-                }
-                else {
+                } else {
 
                     clickPosition.remove(String.valueOf(position));
-                    selected_attractions.remove(String.valueOf(position+1));
+                    selected_attractions.remove(String.valueOf(position + 1));
                     currentAttraction.setStatus(false);
                 }
 
@@ -68,31 +79,42 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
             }
         });
 
-        if(clickPosition.contains(String.valueOf(position))){
-            Log.d("not string","--"+currentAttraction.getAttraction_id());
-            Log.d("string","--"+String.valueOf(currentAttraction.getAttraction_id()));
-            if(selected_attractions.contains(String.valueOf(currentAttraction.getAttraction_id()))){
+        if (clickPosition.contains(String.valueOf(position))) {
+            Log.d("not string", "--" + currentAttraction.getAttraction_id());
+            Log.d("string", "--" + String.valueOf(currentAttraction.getAttraction_id()));
+            if (selected_attractions.contains(String.valueOf(currentAttraction.getAttraction_id()))) {
                 Log.d("click", "exits ");
-            }
-            else {
+            } else {
                 selected_attractions.add(String.valueOf(currentAttraction.getAttraction_id()));
-                Log.d("click", "add " +currentAttraction.getAttraction_name()+" to route ");
+                Log.d("click", "add " + currentAttraction.getAttraction_name() + " to route ");
             }
             //holder.add_attraction_btn.setTag(currentAttraction.getStatus());
-            Log.d("add_attraction_btn", "status:"+ currentAttraction.getStatus());
+            Log.d("add_attraction_btn", "status:" + currentAttraction.getStatus());
 
             //notifyDataSetChanged();
             //holder.add_attraction_btn.setVisibility(View.INVISIBLE);
         }
         //&& String.valueOf(holder.add_attraction_btn.getTag())=="false"
-        if(currentAttraction.getStatus()==false){
+        if (currentAttraction.getStatus() == false) {
             holder.add_attraction_btn.setText("Add");
             holder.add_attraction_btn.setBackgroundColor(Color.BLUE);
-        }
-        else{
+        } else {
             holder.add_attraction_btn.setText("Remove");
             holder.add_attraction_btn.setBackgroundColor(Color.RED);
         }
+
+        // DETAILS BTN
+        holder.details_attraction_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                attraction_id=String.valueOf(position + 1);
+//                Navigation.findNavController(v).navigate(R.id.action_HomeFragment_to_attractionsDetailsFragment);
+                HomeFragmentDirections.ActionHomeFragmentToAttractionsDetailsFragment action = HomeFragmentDirections.actionHomeFragmentToAttractionsDetailsFragment(attraction_id);
+                Navigation.findNavController(v).navigate((NavDirections) action);
+            }
+        });
+
+
 
     }
 
@@ -123,30 +145,16 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
             attraction_name = itemView.findViewById(R.id.home_listrow_atraction_name);
             add_attraction_btn = itemView.findViewById(R.id.add_attraction);
             details_attraction_btn = itemView.findViewById(R.id.details_attraction);
-
-
-//            add_attraction_btn.setOnClickListener(new View.OnClickListener() {
+//            details_attraction_btn.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
 //
-//
-//  selected_attractions.add(currentAttraction.getAttraction_id());
-//                    Log.d("click", "add " +att.getAttraction_name()+" to route ");
+////                    Log.d("click", "deatails of " +att.getAttraction_name());
+//                    Log.d("click","selected attractions: "+selected_attractions);
+//                    Log.d("click","click positions: "+clickPosition);
 //                }
 //            });
 //
-
-
-            details_attraction_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-//                    Log.d("click", "deatails of " +att.getAttraction_name());
-                    Log.d("click","selected attractions: "+selected_attractions);
-                    Log.d("click","click positions: "+clickPosition);
-                }
-            });
-
         }
     }
 }
