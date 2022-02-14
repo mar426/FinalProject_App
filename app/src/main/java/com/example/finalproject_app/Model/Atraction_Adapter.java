@@ -32,7 +32,7 @@ import java.util.List;
 
 public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.AttractionViewHolder> {
 
-    public String attraction_id;
+    public String attraction_id; //for safe args
     private static List<String> clickPosition = new ArrayList<String>();
     private ArrayList<Attraction> attractions;
     public static List<String> selected_attractions= new ArrayList<String>() ;
@@ -53,7 +53,9 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
     @Override
     public void onBindViewHolder(@NonNull AttractionViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Attraction currentAttraction = attractions.get(position);
-        holder.attraction_name.setText(currentAttraction.getAttraction_name());
+        holder.att_name.setText(currentAttraction.getAttraction_name());
+//        Log.d("holder","image"+currentAttraction.getAttraction_image());
+        holder.att_image.setImageResource(currentAttraction.getAttraction_image());
         holder.position = position;
         holder.att = currentAttraction;
         holder.add_attraction_btn.setVisibility(View.VISIBLE);
@@ -107,7 +109,8 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         holder.details_attraction_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attraction_id=String.valueOf(position + 1);
+
+                attraction_id=String.valueOf(position);
 //                Navigation.findNavController(v).navigate(R.id.action_HomeFragment_to_attractionsDetailsFragment);
                 HomeFragmentDirections.ActionHomeFragmentToAttractionsDetailsFragment action = HomeFragmentDirections.actionHomeFragmentToAttractionsDetailsFragment(attraction_id);
                 Navigation.findNavController(v).navigate((NavDirections) action);
@@ -130,8 +133,9 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 
     //View Holder
     public static class AttractionViewHolder extends RecyclerView.ViewHolder{
-        //        public ImageView attraction_img;
-        public TextView attraction_name;
+
+        public TextView att_name;
+        public ImageView att_image;
         public Button add_attraction_btn;
         public Button details_attraction_btn;
         public int position;
@@ -142,18 +146,10 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         public AttractionViewHolder(@NonNull View itemView) {
             super(itemView);
 //            attraction_img=itemView.findViewById(R.id.home_listrow_image);
-            attraction_name = itemView.findViewById(R.id.home_listrow_atraction_name);
+            att_name = itemView.findViewById(R.id.home_listrow_atraction_name);
             add_attraction_btn = itemView.findViewById(R.id.add_attraction);
             details_attraction_btn = itemView.findViewById(R.id.details_attraction);
-//            details_attraction_btn.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-////                    Log.d("click", "deatails of " +att.getAttraction_name());
-//                    Log.d("click","selected attractions: "+selected_attractions);
-//                    Log.d("click","click positions: "+clickPosition);
-//                }
-//            });
+            att_image=itemView.findViewById(R.id.home_listrow_image);
 //
         }
     }

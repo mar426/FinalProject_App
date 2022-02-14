@@ -5,4 +5,117 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+
+
+<!--  ATTRACTIONS DATA FOR RECYCLER VIEW-->
+    <string-array name="attractions_name">
+
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+
+    </string-array>
+
+
+    <string-array name="attractions_description">
+        <item>If you do not have the courage, do not try to get on this roller coaster at all!
+                It will sweep you into a breathtaking gallop, accompanied by dizzying loops,
+                sharp descents and twisting screws, almost unstoppable.
+                Wait, wait: now make it all the way back by galloping backwards!</item>
+        <item>bbbb </item>
+        <item>cccc</item>
+        <item>dddd</item>
+        <item>eeee</item>
+        <item>ffff</item>
+        <item>gggg</item>
+        <item>hhhh</item>
+        <item>iiii</item>
+        <item>jjjj</item>
+        <item>kkkk</item>
+        <item>llll</item>
+        <item>mmmm</item>
+        <item>nnnn</item>
+        <item>oooo</item>
+
+    </string-array>
+
+
+
+    <integer-array name="attractions_age">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+
+    </integer-array>
+
+
+
+    <integer-array name="attractions_height">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </integer-array>
+
+
+    <integer-array name="attractions_round">
+        <item>3</item>
+        <item> 4</item>
+        <item> 5</item>
+        <item> 10</item>
+        <item> 2</item>
+        <item> 4</item>
+        <item>10</item>
+        <item>3</item>
+        <item> 5</item>
+        <item> 4</item>
+        <item> 13</item>
+        <item> 2</item>
+        <item> 3</item>
+        <item> 4</item>
+        <item> 6</item>
+
+
+    </integer-array>
+
+
+
 </resources>
