@@ -1,6 +1,8 @@
 package com.example.finalproject_app.Model;
 
 
+import static com.example.finalproject_app.LoginActivity.ROUTE_FLAG;
+
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.util.Log;
@@ -64,7 +66,8 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         holder.att = currentAttraction;
         holder.add_attraction_btn.setVisibility(View.VISIBLE);
         //holder.row_index = -1;
-
+        if(ROUTE_FLAG==1)
+            holder.add_attraction_btn.setVisibility(View.INVISIBLE);
 
         // ADD BTN
         holder.add_attraction_btn.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,6 @@
 package com.example.finalproject_app.ui.home;
 import static com.example.finalproject_app.LoginActivity.HOME_FLAG;
-
+import static com.example.finalproject_app.LoginActivity.ROUTE_FLAG;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -61,6 +61,10 @@ public class HomeFragment extends Fragment {
         att_height=getResources().getIntArray(R.array.attractions_height);
         att_age=getResources().getIntArray(R.array.attractions_age);
         att_round=getResources().getIntArray(R.array.attractions_round);
+        route_btn=view.findViewById(R.id.home_Route_btn);
+
+        if(ROUTE_FLAG==1)
+            route_btn.setVisibility(View.INVISIBLE);
 
         if(HOME_FLAG==0) {
             for (int i = 0; i < 15; ++i) {
@@ -89,7 +93,7 @@ public class HomeFragment extends Fragment {
         adapter.notifyDataSetChanged();
 
 
-        route_btn=view.findViewById(R.id.home_Route_btn);
+
         route_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,6 +127,8 @@ public class HomeFragment extends Fragment {
                 }.execute(httpCallPost);
                 Log.d( "try",""+adapter.selected_attractions);
                 Log.d( "try",""+paramsPost);
+                ROUTE_FLAG = 1;
+                route_btn.setVisibility(View.INVISIBLE);
             }
         });
 
