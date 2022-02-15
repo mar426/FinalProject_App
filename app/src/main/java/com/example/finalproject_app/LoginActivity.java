@@ -36,6 +36,8 @@ public class LoginActivity extends AppCompatActivity  {
     ProgressBar progressBar;
     public static String USER_ID;
     public static String FLAG="0";
+    public static int HOME_FLAG = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

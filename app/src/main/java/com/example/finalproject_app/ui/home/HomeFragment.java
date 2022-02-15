@@ -1,4 +1,5 @@
 package com.example.finalproject_app.ui.home;
+import static com.example.finalproject_app.LoginActivity.HOME_FLAG;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -61,11 +62,15 @@ public class HomeFragment extends Fragment {
         att_age=getResources().getIntArray(R.array.attractions_age);
         att_round=getResources().getIntArray(R.array.attractions_round);
 
+        if(HOME_FLAG==0) {
+            for (int i = 0; i < 15; ++i) {
+                Attractions_arr.add(new Attraction((i + 1), att_names[i], att_description[i], att_age[i], att_height[i], att_round[i], false, images[i]));
 
-        for(int i=0;i<15;++i){
-            Attractions_arr.add(new Attraction((i+1),att_names[i],att_description[i],att_age[i],att_height[i],att_round[i],false,images[i]));
+            }
+        }
 
-}
+        HOME_FLAG = 1;
+
 
 
 //LIST ADAPTER
@@ -136,7 +141,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Attractions_arr.clear();
+//        Attractions_arr.clear();
 
     }
 
