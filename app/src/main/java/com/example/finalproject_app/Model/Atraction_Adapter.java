@@ -32,6 +32,7 @@ import java.util.List;
 
 public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.AttractionViewHolder> {
 
+
     public String attraction_id; //for safe args
     private static List<String> clickPosition = new ArrayList<String>();
     private ArrayList<Attraction> attractions;
@@ -49,6 +50,9 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         View attractionView= LayoutInflater.from(parent.getContext()).inflate(R.layout.home_list_row,parent,false);
         return new AttractionViewHolder(attractionView);
     }
+
+
+
 
     @Override
     public void onBindViewHolder(@NonNull AttractionViewHolder holder, @SuppressLint("RecyclerView") int position) {
@@ -124,7 +128,6 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 
 
 
-
     @Override
     public int getItemCount() {
         return attractions.size();
@@ -153,4 +156,12 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 //
         }
     }
+
+
+
+
+
+
+
+
 }

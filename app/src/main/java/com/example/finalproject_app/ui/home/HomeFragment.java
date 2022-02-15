@@ -34,6 +34,7 @@ import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
 // test
+
     private RecyclerView recyclerView;
     private Button route_btn;
     private static final String UPDATE_SA_USER_URL = "http://10.0.2.2:3000/users/selected_attraction_update";
@@ -51,8 +52,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_home2, container, false);
 
+        View view = inflater.inflate(R.layout.fragment_home2, container, false);
 
         att_names=getResources().getStringArray(R.array.attractions_name);
         att_description=getResources().getStringArray(R.array.attractions_description);
@@ -80,8 +81,7 @@ public class HomeFragment extends Fragment {
 
         Atraction_Adapter adapter= new Atraction_Adapter(Attractions_arr);
         recyclerView.setAdapter(adapter);
-
-
+        adapter.notifyDataSetChanged();
 
 
         route_btn=view.findViewById(R.id.home_Route_btn);
@@ -121,6 +121,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
@@ -135,12 +136,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        Attractions_arr.clear();
 
     }
-
-
-
-
 
 
 
