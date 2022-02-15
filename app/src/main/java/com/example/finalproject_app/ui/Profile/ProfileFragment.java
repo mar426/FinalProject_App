@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.finalproject_app.HTTP.HttpCall;
 import com.example.finalproject_app.HTTP.HttpRequest;
@@ -37,6 +39,7 @@ public class ProfileFragment extends Fragment {
     private TextView password;
     private TextView age;
     private TextView height;
+    Button editBtn;
     public static String temp;
 
 
@@ -49,6 +52,7 @@ public class ProfileFragment extends Fragment {
         age = view.findViewById(R.id.user_profile_age);
         height = view.findViewById(R.id.user_profile_height);
         name = view.findViewById(R.id.user_profile_name);
+        editBtn=view.findViewById(R.id.user_profile_edit_btn);
 
         //http request:
         HttpCall httpCall = new HttpCall();
@@ -92,9 +96,10 @@ public class ProfileFragment extends Fragment {
             }
         }.execute(httpCall);
 
+        editBtn.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_editProfileFragment2));
+
+
         return view;
-
-
     }
 
     @Override

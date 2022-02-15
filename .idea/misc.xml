@@ -6,8 +6,10 @@
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/activity_sign_up.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/before_schedule_fragment.xml" value="0.1" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_attractions_details.xml" value="0.11413043478260869" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_dashboard.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_edit_profile.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_notifications.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/margalit/Documents/GitHub/FinalProject_App/app/src/main/res/layout/fragment_sign_up.xml" value="0.1" />
@@ -35,7 +37,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

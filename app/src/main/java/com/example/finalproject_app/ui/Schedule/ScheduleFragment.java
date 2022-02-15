@@ -1,5 +1,6 @@
 package com.example.finalproject_app.ui.Schedule;
 
+
 import static com.example.finalproject_app.LoginActivity.USER_ID;
 import static com.example.finalproject_app.ui.Profile.ProfileFragment.temp;
 
@@ -41,8 +42,8 @@ public class ScheduleFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
-//        view = inflater.inflate(R.layout.before_schedule_fragment, container, false);
+        //View view = inflater.inflate(R.layout.fragment_schedule, container, false);
+        View view = inflater.inflate(R.layout.before_schedule_fragment, container, false);
 
 
         //http request:
@@ -75,18 +76,19 @@ public class ScheduleFragment extends Fragment {
 
 
 
-//        if(!FLAG.equals("0")){
-//            Log.d("schedule", "flag if" + FLAG);
-//            view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-//        }
-//        else{
-//            Log.d("schedule", "else" + FLAG);
-//        }
+        if(!FLAG.equals("0")){
+            Log.d("schedule", "flag if" + FLAG);
+            view = inflater.inflate(R.layout.fragment_schedule, container, false);
+            //LIST ADAPTER
+            ListView schedule_list= view.findViewById(R.id.schedule_listView);
+            MyAdapter myAdapter = new MyAdapter();
+            schedule_list.setAdapter(myAdapter);
+        }
+        else{
+            Log.d("schedule", "else" + FLAG);
+        }
 
-        //LIST ADAPTER
-        ListView schedule_list= view.findViewById(R.id.schedule_listView);
-        MyAdapter myAdapter = new MyAdapter();
-        schedule_list.setAdapter(myAdapter);
+
 
 //        scheduleViewModel =
 //                new ViewModelProvider(this).get(ScheduleViewModel.class);
