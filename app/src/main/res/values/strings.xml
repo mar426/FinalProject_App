@@ -10,21 +10,16 @@
     <!--  ATTRACTIONS DATA FOR RECYCLER VIEW-->
     <string-array name="attractions_name">
 
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
+        <item>Roller Coaster</item>
+        <item>Ferris Wheel</item>
+        <item>Pirate ship</item>
+        <item>Bumper cars</item>
+        <item>Water slide</item>
+        <item>Top spin</item>
+        <item>The king</item>
+        <item>Carousel</item>
+        <item>Swings ride</item>
+        <item>black mamba</item>
 
     </string-array>
 
@@ -33,83 +28,88 @@
         <item>If you do not have the courage, do not try to get on this roller coaster at all!
                 It will sweep you into a breathtaking gallop, accompanied by dizzying loops,
                 sharp descents and twisting screws, almost unstoppable.
-                Wait, wait: now make it all the way back by galloping backwards!</item>
-        <item>bbbb </item>
-        <item>cccc</item>
-        <item>dddd</item>
-        <item>eeee</item>
-        <item>ffff</item>
-        <item>gggg</item>
-        <item>hhhh</item>
-        <item>iiii</item>
-        <item>jjjj</item>
-        <item>kkkk</item>
-        <item>llll</item>
-        <item>mmmm</item>
-        <item>nnnn</item>
-        <item>oooo</item>
+                Wait, wait: now make it all the way back by galloping backwards!
+        </item>
+        <item>
+            An amusement facility that includes a standing wheel and passenger
+            compartments that hang on its perimeter
+        </item>
+        <item>Only 5 daring pirates can sit on each bench. The journey is not simple
+                the ship will move in a semicircle dozens of times, back and forth.
+                A fun, experiential and exciting facility.
+        </item>
+        <item>New cars of various types are waiting for you, but we do not need a drivers license!
+                You can accelerate, turn around and collide as you wish
+        </item>
+        <item>The four slides will take you downstream for an exciting experience that you
+                will want to return to again and again. The slides are red for the little ones,
+                the blue ones for the bigger ones.
+        </item>
+        <item>For the brave only! From the moment you sit down and fasten your seat belts,
+                everything will happen at an insane speed: turn over, get stuck in the air with
+                your head down and your feet up, turn 360 degrees and more .
+        </item>
+        <item>The king of extreme facilities, for the brave among you
+                360 degree inversion operation, rises to a height of 25 meters and allows
+                you to almost touch the clouds!
+        </item>
+        <item>A carousel is a type of amusement ride consisting of a rotating circular
+                platform with seats for riders. The "seats" are traditionally in the form of
+                rows of wooden horses or other animals mounted on posts
+        </item>
+        <item>The swing ride  is an amusement ride that is a variation on the carousel
+                in which the seats are suspended from the rotating top of the carousel.
+        </item>
+        <item>An elevator that rises to a height of 65 meters and has 16 seats.
+                On each trip, the sixteen passengers will ascend at high speed to the
+                end and from there a rapid descent down and back for goodness sake.
+        </item>
+
+
 
     </string-array>
 
 
-    <integer-array name="attractions_age">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
 
+    <integer-array name="attractions_age">
+        <item>18</item>
+        <item>12</item>
+        <item>12</item>
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+        <item>18</item>
+        <item>3</item>
+        <item>12</item>
+        <item>12</item>
     </integer-array>
 
 
     <integer-array name="attractions_height">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
+        <item>130</item>
+        <item>130</item>
+        <item>120</item>
+        <item>95</item>
+        <item>95</item>
+        <item>140</item>
+        <item>140</item>
+        <item>95</item>
+        <item>120</item>
+        <item>130</item>
     </integer-array>
 
 
     <integer-array name="attractions_round">
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>10</item>
         <item>2</item>
-        <item>4</item>
-        <item>10</item>
-        <item>3</item>
         <item>5</item>
+        <item>1</item>
         <item>4</item>
-        <item>13</item>
+        <item>1</item>
+        <item>5</item>
         <item>2</item>
         <item>3</item>
-        <item>4</item>
-        <item>6</item>
-
-
+        <item>2</item>
+        <item>1</item>
     </integer-array>
-
 
 </resources>

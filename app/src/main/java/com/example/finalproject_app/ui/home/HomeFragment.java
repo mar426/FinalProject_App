@@ -45,8 +45,8 @@ public class HomeFragment extends Fragment {
 
 
 
-    public int images[]={R.drawable.att1,R.drawable.images,R.drawable.height, R.drawable.email,R.drawable.avatar, R.drawable.email,R.drawable.avatar,R.drawable.avatar,
-            R.drawable.email,R.drawable.avatar,R.drawable.height,R.drawable.avatar,R.drawable.email,R.drawable.avatar,R.drawable.height};
+    public int images[]={R.drawable.train,R.drawable.images,R.drawable.pirateship, R.drawable.bumpercars,
+            R.drawable.water, R.drawable.topspin,R.drawable.theking,R.drawable.carousel, R.drawable.swing,R.drawable.blackmamba};
 
 
 
@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment {
             route_btn.setVisibility(View.INVISIBLE);
 
         if(HOME_FLAG==0) {
-            for (int i = 0; i < 15; ++i) {
+            for (int i = 0; i < 10; ++i) {
                 Attractions_arr.add(new Attraction((i + 1), att_names[i], att_description[i], att_age[i], att_height[i], att_round[i], false, images[i]));
 
             }
