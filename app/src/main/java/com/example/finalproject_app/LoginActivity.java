@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity  {
     EditText login_email;
     EditText login_password;
     Button login_loginbtn;
-    Button login_sigupbtn;
+    TextView login_sigupbtn;
     TextView reset_password;
 
     public static String USER_ID;
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity  {
 
         login_email=findViewById(R.id.login_email);
         login_password=findViewById(R.id.login_password);
-        login_loginbtn=findViewById(R.id.login_loginbtn);
+        login_loginbtn=findViewById(R.id.login_login_btn);
         login_sigupbtn=findViewById(R.id.login_sigup_btn);
 //        reset_password=findViewById(R.id.login_forgat_password);
 
