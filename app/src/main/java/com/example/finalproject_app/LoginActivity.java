@@ -1,21 +1,25 @@
 package com.example.finalproject_app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalproject_app.HTTP.HttpCall;
@@ -33,10 +37,13 @@ public class LoginActivity extends AppCompatActivity  {
     EditText login_password;
     Button login_loginbtn;
     Button login_sigupbtn;
-    ProgressBar progressBar;
+    TextView reset_password;
+
     public static String USER_ID;
     public static String FLAG="0";
     public static int HOME_FLAG = 0;
+    public static int ROUTE_FLAG = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +52,10 @@ public class LoginActivity extends AppCompatActivity  {
 
         login_email=findViewById(R.id.login_email);
         login_password=findViewById(R.id.login_password);
-        progressBar=findViewById(R.id.login_progressBar);
         login_loginbtn=findViewById(R.id.login_loginbtn);
         login_sigupbtn=findViewById(R.id.login_sigup_btn);
-        progressBar.setVisibility(View.INVISIBLE);
+//        reset_password=findViewById(R.id.login_forgat_password);
+
 
 
         login_loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +118,47 @@ public class LoginActivity extends AppCompatActivity  {
             }
         });
 
+
+//        reset_password.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("1","click");
+//                EditText resetMail= new EditText(v.getContext());
+//                AlertDialog.Builder passwordResetDialog= new AlertDialog.Builder(v.getContext());
+//                passwordResetDialog.setTitle("Reset Password");
+//                passwordResetDialog.setMessage("Enter Your Email To Received Reset Link.");
+//                passwordResetDialog.setView(resetMail);
+//
+//
+//                    passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            Log.d("1", "reset");
+//                            // extract mail and send reset link
+//                            String mail = resetMail.getText().toString();
+//                            // http rq to server and send mail
+//                            Toast.makeText(getApplicationContext(), "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    });
+//
+//
+//                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        // CLOSE DIALOG
+//                    }
+//                });
+//                passwordResetDialog.create().show();
+//
+//            }
+//
+//        });
+
+
+
+
     }
 
 
@@ -168,6 +216,28 @@ public class LoginActivity extends AppCompatActivity  {
         }
         return true;
     }
+
+
+//    boolean validateInput(EditText etEmail) {
+//
+//        if (etEmail.getText().toString().equals("")) {
+//            etEmail.setError("Please Enter Email");
+//            return false;
+//        }
+//
+//        // checking the proper email format
+//        if (!isEmailValid(etEmail.getText().toString())) {
+//            etEmail.setError("Please Enter Valid Email");
+//            return false;
+//        }
+//
+//
+//        return true;
+//    }
+//
+//    boolean isEmailValid(String email) {
+//        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+//    }
 
 
 
