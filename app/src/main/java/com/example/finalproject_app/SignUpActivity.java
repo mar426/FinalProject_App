@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalproject_app.HTTP.HttpCall;
@@ -28,6 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText signup_verify_password;
     //Buttons
     private Button signup_btn;
+    private TextView back_btn;
     //http
     private static final String ADD_USER_URL = "http://10.0.2.2:3000/users/addUser";
 
@@ -43,8 +45,19 @@ public class SignUpActivity extends AppCompatActivity {
         signup_height=findViewById(R.id.signup_height);
         signup_password=findViewById(R.id.signup_password);
         signup_verify_password=findViewById(R.id.signup_verify_password);
+        back_btn=findViewById(R.id.signup_back_btn);
 
 
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(v.getContext(), LoginActivity.class);
+                v.getContext().startActivity(intent);
+
+
+            }
+        });
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override

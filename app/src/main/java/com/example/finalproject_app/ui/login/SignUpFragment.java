@@ -35,7 +35,6 @@ public class SignUpFragment extends Fragment {
         nameET=view.findViewById(R.id.signup_fullName);
         phoneET=view.findViewById(R.id.signup_age);
         verifyPasswordET=view.findViewById(R.id.signup_verify_password);
-        progressBar=view.findViewById(R.id.signup_progressBar);
         signUpSaveBtn=view.findViewById(R.id.signup_btn);
 
 

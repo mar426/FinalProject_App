@@ -17,6 +17,26 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:text="Welcome To FastQ"
+            android:textColor="#BCE91E63"
+            android:textSize="30dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="382dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="Wait Less, Enjoy More"
+            android:textColor="#BC040404"
+            android:textSize="20dp"
+            android:textStyle="italic"></TextView>
+
 
         <EditText
             android:id="@+id/login_email"
@@ -27,9 +47,9 @@
             android:hint="Username"
             android:paddingLeft="15dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColorHint="#817E7E"
+            android:textSize="20sp" />
+
 
         <EditText
             android:id="@+id/login_password"
@@ -41,9 +61,8 @@
             android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColorHint="#817E7E"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/login_login_btn"
@@ -52,8 +71,9 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/btncolor"
             android:buttonTint="#FFFBF8"
-            android:text="Log In"
+            android:text="Log In >"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:backgroundTint="#BCE91E63">
@@ -66,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:gravity="center"
-            android:text="Create a new account"
+            android:text="Create a new account >"
             android:textColor="#403C3C"
             android:textSize="20dp">
 

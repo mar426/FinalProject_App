@@ -22,8 +22,9 @@ public class SplashActivity extends AppCompatActivity {
         appName=findViewById(R.id.splash_appName);
         lottie=findViewById(R.id.splash_lottie);
 
-        appName.animate().translationY(-1400).setDuration(2700).setStartDelay(1200);
+        appName.animate();
         lottie.animate();
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -32,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        }, 3000);
+        }, 2500);
     }
 
 
