@@ -39,13 +39,13 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private Button route_btn;
     private static final String UPDATE_SA_USER_URL = "https://final-project-fastq.herokuapp.com/users/selected_attraction_update";
-    public String att_names[],att_description[];
+    public static String att_names[],att_description[];
     public int att_height[],att_age[],att_round[];
     public static ArrayList<Attraction> Attractions_arr= new ArrayList<>();
 
 
 
-    public int images[]={R.drawable.train,R.drawable.images,R.drawable.pirateship, R.drawable.bumpercars,
+    public static int images[]={R.drawable.train,R.drawable.images,R.drawable.pirateship, R.drawable.bumpercars,
             R.drawable.water, R.drawable.topspin,R.drawable.theking,R.drawable.carousel, R.drawable.swing,R.drawable.blackmamba};
 
 

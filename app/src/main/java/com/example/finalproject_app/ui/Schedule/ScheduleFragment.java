@@ -3,6 +3,8 @@ package com.example.finalproject_app.ui.Schedule;
 
 import static com.example.finalproject_app.LoginActivity.USER_ID;
 import static com.example.finalproject_app.ui.Profile.ProfileFragment.temp;
+import static com.example.finalproject_app.ui.home.HomeFragment.images;
+import static com.example.finalproject_app.ui.home.HomeFragment.att_names;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -24,11 +26,22 @@ import com.example.finalproject_app.HTTP.HttpCall;
 import com.example.finalproject_app.HTTP.HttpRequest;
 import com.example.finalproject_app.R;
 import com.example.finalproject_app.databinding.FragmentDashboardBinding;
+import com.example.finalproject_app.ui.home.HomeFragment;
+
 import static com.example.finalproject_app.LoginActivity.FLAG;
+
+import static java.lang.Integer.*;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+
 
 public class ScheduleFragment extends Fragment {
 
@@ -36,6 +49,10 @@ public class ScheduleFragment extends Fragment {
     private ScheduleViewModel scheduleViewModel;
     private FragmentDashboardBinding binding;
     private ImageView attractionImage;
+    public static JSONArray times;
+    public static JSONArray attractions;
+    public ArrayList attractionArray = new ArrayList();
+    public ArrayList timesArray = new ArrayList();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -44,6 +61,7 @@ public class ScheduleFragment extends Fragment {
 
         //View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         View view = inflater.inflate(R.layout.before_schedule_fragment, container, false);
+
 
 
         //http request:
@@ -58,15 +76,23 @@ public class ScheduleFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 s = response;
+                ArrayList schedule = new ArrayList();
                 try {
-                    JSONObject obj = new JSONObject(s);
+                    JSONObject obj = new JSONObject(response);
                     if(obj.has("flag")) {
                         FLAG = obj.getString("flag");
                         Log.d("schedule", "flag "+FLAG);
                     }
                     else {
-                        FLAG = obj.getString("selected_attractions");
-                        Log.d("schedule", "flag not 0 " + FLAG);
+                        JSONObject arrayObj = new JSONObject(s);
+                        times = arrayObj.getJSONArray("times");
+                        attractions = arrayObj.getJSONArray("attractions");
+                        Log.d("attractions:", "" + attractions.length());
+                        Log.d("times:", "" + times);
+                        Log.d("att:", "" + attractions.getString(0));
+                        Log.d("time:", "" + times.getString(0));
+
+                        FLAG = "1";
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -77,7 +103,27 @@ public class ScheduleFragment extends Fragment {
 
 
         if(!FLAG.equals("0")){
-            Log.d("schedule", "flag if" + FLAG);
+
+            for (int i = 0; i<times.length(); i++)
+            {
+                try {
+                    timesArray.add(times.getString(i));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            for (int i = 0; i<attractions.length(); i++)
+            {
+                try {
+                    attractionArray.add(attractions.getString(i));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            Log.d("attractions:", "" + attractionArray);
+            Log.d("times:", "" + timesArray.get(0).getClass());
+
+            Log.d("schedule---------", "flag if" + FLAG);
             view = inflater.inflate(R.layout.fragment_schedule, container, false);
             //LIST ADAPTER
             ListView schedule_list= view.findViewById(R.id.schedule_listView);
@@ -119,19 +165,22 @@ public class ScheduleFragment extends Fragment {
 
     class MyAdapter extends BaseAdapter {
 
-        LinkedList<String> data;
+        LinkedList<String> dataAttractions;
+        LinkedList<String> dataTimes;
 
         //constractor
         MyAdapter() {
-            data = new LinkedList<String>();
-            for (int i = 0; i < 15; ++i) {
-                data.add("attraction" + i);
+            dataAttractions = new LinkedList<String>();
+            dataTimes = new LinkedList<String>();
+            for (int i = 0; i < attractionArray.size(); ++i) {
+                dataAttractions.add(attractionArray.get(i).toString());
+                dataTimes.add(timesArray.get(i).toString());
             }
         }
 
         @Override
         public int getCount() {
-            return data.size();
+            return dataAttractions.size();
         }
 
 
@@ -155,8 +204,10 @@ public class ScheduleFragment extends Fragment {
             }
             TextView attraction_name = convertView.findViewById(R.id.schedule_listrow_atraction_name);
             TextView enter_time=convertView.findViewById(R.id.schedule_listrow_enterTime);
-            attraction_name.setText(data.get(position));
-            enter_time.setText("08:00");
+            ImageView imageAttraction = convertView.findViewById(R.id.schedule_listrow_image);
+            attraction_name.setText(att_names[Integer.parseInt(dataAttractions.get(position))-1]);
+            enter_time.setText(dataTimes.get(position));
+            imageAttraction.setImageResource(images[Integer.parseInt(dataAttractions.get(position))-1]);
             return convertView;
         }
     }
