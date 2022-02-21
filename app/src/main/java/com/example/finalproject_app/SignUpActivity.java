@@ -31,7 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button signup_btn;
     private TextView back_btn;
     //http
-    private static final String ADD_USER_URL = "http://10.0.2.2:3000/users/addUser";
+    private static final String ADD_USER_URL = "https://final-project-fastq.herokuapp.com/users/addUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

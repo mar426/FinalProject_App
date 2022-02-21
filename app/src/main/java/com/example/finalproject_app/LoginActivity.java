@@ -32,7 +32,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity  {
-    private static final String SERVER = "http://10.0.2.2:3000/users/login";
+    private static final String SERVER = "https://final-project-fastq.herokuapp.com/users/login";
     EditText login_email;
     EditText login_password;
     Button login_loginbtn;

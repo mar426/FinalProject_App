@@ -7,15 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.example.finalproject_app.HTTP.HttpCall;
@@ -23,8 +19,6 @@ import com.example.finalproject_app.HTTP.HttpRequest;
 import com.example.finalproject_app.R;
 import com.example.finalproject_app.databinding.FragmentNotificationsBinding;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -33,13 +27,13 @@ public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
     private FragmentNotificationsBinding binding;
-    private static final String SERVER = "http://10.0.2.2:3000/users/getUserByID";
+    private static final String SERVER = "https://final-project-fastq.herokuapp.com/users/getUserByID";
     private TextView name;
     private TextView email;
     private TextView password;
     private TextView age;
     private TextView height;
-    Button editBtn;
+    private ImageView editBtn;
     public static String temp;
 
 

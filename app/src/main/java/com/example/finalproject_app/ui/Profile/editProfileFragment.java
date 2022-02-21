@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class editProfileFragment extends Fragment {
 
     //http
-    private static final String ADD_USER_URL = "http://10.0.2.2:3000/users/updateUser";
+    private static final String ADD_USER_URL = "https://final-project-fastq.herokuapp.com/users/updateUser";
 
     EditText EditProfile_name;
     EditText EditProfile_password;

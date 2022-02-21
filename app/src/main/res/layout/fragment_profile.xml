@@ -3,38 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#BF8F8F">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:background="@drawable/back3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-<!--            <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                android:id="@+id/user_profile_image"-->
-<!--                android:layout_width="142dp"-->
-<!--                android:layout_height="128dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:src="@drawable/user_profile_picture"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.498"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <!--            <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                android:id="@+id/user_profile_image"-->
+            <!--                android:layout_width="142dp"-->
+            <!--                android:layout_height="128dp"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:src="@drawable/user_profile_picture"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="0.498"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
             <TextView
                 android:id="@+id/user_profile_age"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_width="312dp"
+                android:layout_height="34dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="24dp"
                 android:text="age"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView_age"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,11 +47,12 @@
 
             <TextView
                 android:id="@+id/user_profile_height"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_width="309dp"
+                android:layout_height="38dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="24dp"
                 android:text="height"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView_height"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,11 +61,12 @@
 
             <TextView
                 android:id="@+id/user_profile_password"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_width="305dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="24dp"
                 android:text="password"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -68,123 +74,131 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
 
-
             <TextView
                 android:id="@+id/user_profile_mail"
-                android:layout_width="0dp"
-                android:layout_height="33dp"
+                android:layout_width="303dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="24dp"
                 android:text="email"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageview11"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toEndOf="@+id/imageview11"
                 app:layout_constraintTop_toTopOf="@+id/imageview11" />
 
             <TextView
                 android:id="@+id/user_profile_name"
                 android:layout_width="wrap_content"
-                android:layout_height="33dp"
+                android:layout_height="53dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:text="UserName"
-                android:textColor="#040303"
-                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/user_profile_edit_btn"
-                android:layout_width="120dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/roundedbutton"
-                android:text="EDIT "
-                android:textColor="#79098C"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:backgroundTint="#BEF3EFF4"
-                app:layout_constraintBottom_toTopOf="@+id/user_profile_height"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_profile_password" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 
             <ImageView
                 android:id="@+id/imageview11"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/email"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/emailprofile"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_profile_name" />
 
 
-
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/password"
+                android:src="@drawable/keyprofile"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageview11" />
 
             <ImageView
                 android:id="@+id/imageView_age"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/age"
+                android:src="@drawable/ageprofile"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
             <ImageView
                 android:id="@+id/imageView_height"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/height"
+                android:src="@drawable/heightprofile"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView_age" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/user_profile_logoutBtn"-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_marginStart="24dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:layout_marginEnd="24dp"-->
-<!--                android:background="#00FFFFFF"-->
-<!--                android:scaleType="fitXY"-->
-<!--                android:src="@drawable/logoutbtn"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/user_profile_edit_btn" />-->
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/user_profile_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/userprofile" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/textView3"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="24dp"-->
-<!--                android:layout_marginEnd="24dp"-->
-<!--                android:text="Logout"-->
-<!--                android:textSize="15sp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/user_profile_logoutBtn" />-->
+            <ImageView
+                android:id="@+id/user_profile_edit_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_height"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/editicon" />
+
+            <!--            <ImageButton-->
+            <!--                android:id="@+id/user_profile_logoutBtn"-->
+            <!--                android:layout_width="30dp"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:layout_marginStart="24dp"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:layout_marginEnd="24dp"-->
+            <!--                android:background="#00FFFFFF"-->
+            <!--                android:scaleType="fitXY"-->
+            <!--                android:src="@drawable/logoutbtn"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/user_profile_edit_btn" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textView3"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="24dp"-->
+            <!--                android:layout_marginEnd="24dp"-->
+            <!--                android:text="Logout"-->
+            <!--                android:textSize="15sp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/user_profile_logoutBtn" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
