@@ -1,6 +1,7 @@
 package com.example.finalproject_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import static com.example.finalproject_app.LoginActivity.USER_ID;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,10 +16,13 @@ import android.widget.Toast;
 import com.example.finalproject_app.HTTP.HttpCall;
 import com.example.finalproject_app.HTTP.HttpRequest;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    public static String USER_ID_sign;
     //Edit Texts
     private EditText signup_ID;
     private EditText signup_fullName;
@@ -80,17 +84,26 @@ public class SignUpActivity extends AppCompatActivity {
                 paramsPost.put("password", String.valueOf(password));
                 httpCallPost.setParams(paramsPost);
                 new HttpRequest(){
+                    String s;
                     @Override
                     public void onResponse(String response) {
                         super.onResponse(response);
-                        String s = response;
+                        s = response;
+                        Log.d("response signup",""+response);
                         try {
-                            Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                            JSONObject obj = new JSONObject(s);
+                            USER_ID_sign = obj.getString("userID");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        if (s.equals("User added successfully")) {
+                        Log.d("signup","s:"+s);
+                        if (!s.equals("An error POST Occurred!")) {
+                            Log.d("usrtid sign", USER_ID_sign);
+                            Toast.makeText(getApplicationContext(), "connected", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }.execute(httpCallPost);
