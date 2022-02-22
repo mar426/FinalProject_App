@@ -2,6 +2,7 @@ package com.example.finalproject_app.ui.Schedule;
 
 
 
+
 import static com.example.finalproject_app.LoginActivity.USER_ID;
 import static com.example.finalproject_app.SignUpActivity.USER_ID_sign;
 import static com.example.finalproject_app.ui.Profile.ProfileFragment.temp;
@@ -47,7 +48,7 @@ import java.util.LinkedList;
 
 public class ScheduleFragment extends Fragment {
 
-    private static final String SERVER_GET_ROUTE = "https://final-project-fastq.herokuapp.com/users/getRoute";
+    private static final String SERVER_GET_ROUTE= "https://final-project-fastq.herokuapp.com/users/getRoute";
     private ScheduleViewModel scheduleViewModel;
     private FragmentDashboardBinding binding;
     private ImageView attractionImage;

@@ -1,5 +1,6 @@
 package com.example.finalproject_app.ui.Profile;
 
+
 import static com.example.finalproject_app.LoginActivity.USER_ID;
 
 import static com.example.finalproject_app.SignUpActivity.USER_ID_sign;
@@ -29,7 +30,7 @@ public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
     private FragmentNotificationsBinding binding;
-    private static final String SERVER = "https://final-project-fastq.herokuapp.com/users/getUserByID";
+    private static final String SERVER ="https://final-project-fastq.herokuapp.com/users/getUserByID";
     private TextView name;
     private TextView email;
     private TextView password;
@@ -57,9 +58,10 @@ public class ProfileFragment extends Fragment {
         HashMap<String,String> params = new HashMap<>();
         if(USER_ID!=null)
             params.put("userID", USER_ID);
-        else
+        else if(USER_ID_sign!=null)
             params.put("userID", USER_ID_sign);
         Log.d("user id","user id sign "+USER_ID_sign);
+        Log.d("user id","user id login "+USER_ID);
         Log.d("user id","profile "+params);
         httpCall.setParams(params);
 
