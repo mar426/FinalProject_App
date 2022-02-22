@@ -31,6 +31,9 @@ import com.example.finalproject_app.Model.Attraction;
 import com.example.finalproject_app.R;
 import com.example.finalproject_app.SignUpActivity;
 
+import static com.example.finalproject_app.LoginActivity.USER_ID;
+import static com.example.finalproject_app.SignUpActivity.USER_ID_sign;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -107,8 +110,11 @@ public class HomeFragment extends Fragment {
                 {
                     paramsPost.put("selected_attractions"+"["+i+"]", String.valueOf((adapter.selected_attractions).get(i)));
                 }
-                Log.d("tt","array"+paramsPost);
-                paramsPost.put("userID", "123456");
+                if(USER_ID!=null)
+                    paramsPost.put("userID", USER_ID);
+                else
+                    paramsPost.put("userID", USER_ID_sign);
+                Log.d("user id","home "+paramsPost);
                 httpCallPost.setParams(paramsPost);
                 new HttpRequest(){
                     @Override

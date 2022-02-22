@@ -2,7 +2,9 @@ package com.example.finalproject_app.ui.Profile;
 
 import static com.example.finalproject_app.LoginActivity.USER_ID;
 
+import static com.example.finalproject_app.SignUpActivity.USER_ID_sign;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +55,12 @@ public class ProfileFragment extends Fragment {
         httpCall.setMethodtype(HttpCall.POST);
         httpCall.setUrl(SERVER);
         HashMap<String,String> params = new HashMap<>();
-        params.put("userID", USER_ID);
+        if(USER_ID!=null)
+            params.put("userID", USER_ID);
+        else
+            params.put("userID", USER_ID_sign);
+        Log.d("user id","user id sign "+USER_ID_sign);
+        Log.d("user id","profile "+params);
         httpCall.setParams(params);
 
         new HttpRequest(){

@@ -1,5 +1,6 @@
 package com.example.finalproject_app.ui.Profile;
 
+import static com.example.finalproject_app.SignUpActivity.USER_ID_sign;
 import static com.example.finalproject_app.LoginActivity.USER_ID;
 
 import android.content.Intent;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.text.Editable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +65,11 @@ public class editProfileFragment extends Fragment {
                 Editable password = EditProfile_password.getText();
                 Editable age = EditProfile_age.getText();
                 Editable height = EditProfile_height.getText();
-                paramsPost.put("userID", String.valueOf(USER_ID));
+                if(USER_ID!=null)
+                    paramsPost.put("userID", String.valueOf(USER_ID));
+                else
+                    paramsPost.put("userID", String.valueOf(USER_ID_sign));
+                Log.d("user id","edit profile "+paramsPost);
                 paramsPost.put("fullName", String.valueOf(fullName));
                 paramsPost.put("password", String.valueOf(password));
                 paramsPost.put("age", String.valueOf(age));
