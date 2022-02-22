@@ -1,4 +1,5 @@
 package com.example.finalproject_app.ui.home;
+
 import static com.example.finalproject_app.LoginActivity.HOME_FLAG;
 import static com.example.finalproject_app.LoginActivity.ROUTE_FLAG;
 import android.content.Intent;
@@ -38,7 +39,7 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private Button route_btn;
-    private static final String UPDATE_SA_USER_URL = "http://10.0.2.2:3000/users/selected_attraction_update";
+    private static final String UPDATE_SA_USER_URL = "https://final-project-fastq.herokuapp.com/users/selected_attraction_update";
     public static String att_names[],att_description[];
     public int att_height[],att_age[],att_round[];
     public static ArrayList<Attraction> Attractions_arr= new ArrayList<>();

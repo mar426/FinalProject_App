@@ -45,7 +45,7 @@ import java.util.LinkedList;
 
 public class ScheduleFragment extends Fragment {
 
-    private static final String SERVER_GET_ROUTE = "http://10.0.2.2:3000/users/getRoute";
+    private static final String SERVER_GET_ROUTE = "https://final-project-fastq.herokuapp.com/users/getRoute";
     private ScheduleViewModel scheduleViewModel;
     private FragmentDashboardBinding binding;
     private ImageView attractionImage;

@@ -12,22 +12,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject_app.R;
-import com.example.finalproject_app.ui.home.AttractionsDetailsFragment;
-import com.example.finalproject_app.ui.home.HomeFragment;
 import com.example.finalproject_app.ui.home.HomeFragmentDirections;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,11 +98,10 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
         }
         //&& String.valueOf(holder.add_attraction_btn.getTag())=="false"
         if (currentAttraction.getStatus() == false) {
-            holder.add_attraction_btn.setText("Add");
-            holder.add_attraction_btn.setBackgroundColor(Color.BLUE);
+            holder.add_attraction_btn.setImageResource(R.drawable.ic_add);
         } else {
-            holder.add_attraction_btn.setText("Remove");
-            holder.add_attraction_btn.setBackgroundColor(Color.RED);
+            holder.add_attraction_btn.setImageResource(R.drawable.ic_remove);
+
         }
 
         // DETAILS BTN
@@ -142,8 +134,8 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 
         public TextView att_name;
         public ImageView att_image;
-        public Button add_attraction_btn;
-        public Button details_attraction_btn;
+        public ImageView add_attraction_btn;
+        public ImageView details_attraction_btn;
         public int position;
         public Attraction att;
         public int row_index;
@@ -154,7 +146,7 @@ public class Atraction_Adapter extends RecyclerView.Adapter<Atraction_Adapter.At
 //            attraction_img=itemView.findViewById(R.id.home_listrow_image);
             att_name = itemView.findViewById(R.id.home_listrow_atraction_name);
             add_attraction_btn = itemView.findViewById(R.id.add_attraction);
-            details_attraction_btn = itemView.findViewById(R.id.details_attraction);
+            details_attraction_btn = itemView.findViewById(R.id.deatails_icon);
             att_image=itemView.findViewById(R.id.home_listrow_image);
 //
         }
