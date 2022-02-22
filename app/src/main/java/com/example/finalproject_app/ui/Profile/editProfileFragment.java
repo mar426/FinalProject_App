@@ -24,6 +24,8 @@ import com.example.finalproject_app.MainActivity;
 import com.example.finalproject_app.R;
 import com.example.finalproject_app.SignUpActivity;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 
@@ -31,7 +33,7 @@ public class editProfileFragment extends Fragment {
 
     //http
     private static final String ADD_USER_URL = "https://final-project-fastq.herokuapp.com/users/updateUser";
-
+    private static final String SERVER = "https://final-project-fastq.herokuapp.com/users/getUserByID";
     EditText EditProfile_name;
     EditText EditProfile_password;
     EditText EditProfile_age;
@@ -52,6 +54,47 @@ public class editProfileFragment extends Fragment {
         EditProfile_height = view.findViewById(R.id.edit_profile_height);
         EditProfile_saveBtn = view.findViewById(R.id.edit_profile_save_button);
         EditProfile_cancelBtn = view.findViewById(R.id.edit_profile_cancel_button);
+
+        //http request:
+        HttpCall httpCall = new HttpCall();
+        httpCall.setMethodtype(HttpCall.POST);
+        httpCall.setUrl(SERVER);
+        HashMap<String,String> params = new HashMap<>();
+        if(USER_ID!=null)
+            params.put("userID", USER_ID);
+        else
+            params.put("userID", USER_ID_sign);
+        Log.d("user id","user id sign "+USER_ID_sign);
+        Log.d("user id","profile "+params);
+        httpCall.setParams(params);
+        new HttpRequest(){
+            @Override
+            public void onResponse(String response) {
+                String s;
+                String name_json = null;
+                String password_json = null;
+                String age_json = null;
+                String height_json = null;
+
+                s = response;
+
+                try {
+                    JSONObject obj = new JSONObject(s);
+                    name_json = obj.getString("fullName");
+                    password_json = obj.getString("password");
+                    age_json = obj.getString("age");
+                    height_json = obj.getString("height");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                EditProfile_name.setText(name_json);
+                EditProfile_password.setText(password_json);
+                EditProfile_age.setText(age_json);
+                EditProfile_height.setText(height_json);
+            }
+        }.execute(httpCall);
+
+
 
         //save button
         EditProfile_saveBtn.setOnClickListener(new View.OnClickListener() {
