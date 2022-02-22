@@ -1,7 +1,9 @@
 package com.example.finalproject_app.ui.Schedule;
 
 
+
 import static com.example.finalproject_app.LoginActivity.USER_ID;
+import static com.example.finalproject_app.SignUpActivity.USER_ID_sign;
 import static com.example.finalproject_app.ui.Profile.ProfileFragment.temp;
 import static com.example.finalproject_app.ui.home.HomeFragment.images;
 import static com.example.finalproject_app.ui.home.HomeFragment.att_names;
@@ -69,7 +71,11 @@ public class ScheduleFragment extends Fragment {
         httpCall.setMethodtype(HttpCall.POST);
         httpCall.setUrl(SERVER_GET_ROUTE);
         HashMap<String,String> params = new HashMap<>();
-        params.put("id", USER_ID);
+        if(USER_ID!=null)
+            params.put("userID", USER_ID);
+        else
+            params.put("userID", USER_ID_sign);
+        Log.d("user id","scedule "+params);
         httpCall.setParams(params);
         new HttpRequest(){
             String s;
